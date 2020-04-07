@@ -40,7 +40,14 @@ $ git clone git@github.com:KATO-Hiro/EverydayAtCoder.git
 
 ### Frontend
 
-- Next.js
+- Node.js 12.6.x
+- [Next.js](https://nextjs.org/) 9.3.x
+- [React](https://reactjs.org/) 16.13.x
+- React-DOM 16.13.x
+
+### Optional
+
+- [VS Code Remote Development](https://code.visualstudio.com/docs/remote/containers)
 
 ## Links
 
