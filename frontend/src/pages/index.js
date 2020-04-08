@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from "next/link";
-import Header from "../comps/Header";
+import Header from "../components/Header";
 
 export default function Index() {
   return (
