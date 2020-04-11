@@ -1,6 +1,8 @@
 import React from 'react';
+// FIXME: "" → ''
 import Layout from "../components/MyLayout";
 import ContestHistoryTable from "../components/ContestHistoryTable";
+import GenerateData from '../components/GenerateData';
 
 const histroyPageContent = <h1>History</h1>;
 
@@ -31,32 +33,9 @@ export default function History() {
     []
   );
 
-  const data = React.useMemo(
-    () => [
-      {
-        ContestName: 'AtCoder Beginner Contest 161',
-        Performance: 2400,
-        OldRating: 2347,
-        NewRating: 2352,
-        Diff: '+5',
-      },
-      {
-        ContestName: 'AtCoder Beginner Contest 160',
-        Performance: 2000,
-        OldRating: 2457,
-        NewRating: 2397,
-        Diff: '-60',
-      },
-      {
-        ContestName: 'AtCoder Grand Contest 043',
-        Performance: 3102,
-        OldRating: 2407,
-        NewRating: 2457,
-        Diff: '+50',
-      },
-    ],
-    []
-  );
+  // dummy data.
+  // TODO: Enable to fetch API in backend.
+  const data = React.useMemo(() => GenerateData(100), []);
 
   return (
     <div>
