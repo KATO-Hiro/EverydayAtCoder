@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Layout from "../components/MyLayout";
+import RatingChart from "../components/RatingChart";
 
 const indexPageContent = <h1>My Blog</h1>;
 
@@ -20,6 +21,8 @@ export default function Index() {
         <PostLink id="learn-next.js" as="" />
         <PostLink id="deploy-nextjs" as="" />
       </ul>
+
+      {RatingChart}
     </div>
   );
 }
