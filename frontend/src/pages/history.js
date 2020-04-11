@@ -65,12 +65,24 @@ export default function History() {
   const columns = React.useMemo(
     () => [
       {
-        Header: 'Hoge',
-        accessor: 'col1',
+        Header: 'Contest Name',
+        accessor: 'ContestName',
       },
       {
-        Header: 'Foo',
-        accessor: 'col2',
+        Header: 'Performance',
+        accessor: 'Performance',
+      },
+      {
+        Header: 'Old Rating',
+        accessor: 'OldRating',
+      },
+      {
+        Header: 'New Rating',
+        accessor: 'NewRating',
+      },
+      {
+        Header: 'Diff',
+        accessor: 'Diff',
       },
     ],
     []
@@ -79,16 +91,25 @@ export default function History() {
   const data = React.useMemo(
     () => [
       {
-        col1: 'Hello',
-        col2: 'World',
+        ContestName: 'AtCoder Beginner Contest 161',
+        Performance: 2400,
+        OldRating: 2347,
+        NewRating: 2352,
+        Diff: '+5',
       },
       {
-        col1: 'react-table',
-        col2: 'rocks',
+        ContestName: 'AtCoder Beginner Contest 160',
+        Performance: 2000,
+        OldRating: 2457,
+        NewRating: 2397,
+        Diff: '-60',
       },
       {
-        col1: 'whatever',
-        col2: 'you want',
+        ContestName: 'AtCoder Grand Contest 043',
+        Performance: 3102,
+        OldRating: 2407,
+        NewRating: 2457,
+        Diff: '+50',
       },
     ],
     []
