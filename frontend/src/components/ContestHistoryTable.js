@@ -31,20 +31,22 @@ export default function ContestHistoryTable({ columns, data }) {
   // Render the UI for your table
   return (
     <>
-      <select
-        value={pageSize}
-        onChange={e => {
-          setPageSize(Number(e.target.value))
-        }}
-      >
-        {[10, 20, 50, 100].map(pageSize => (
-          <option key={pageSize} value={pageSize}>
-            Show {pageSize} contests / page
-          </option>
-        ))}
-      </select>
+      <div className="pagesize" align="right">
+        <select
+          value={pageSize}
+          onChange={e => {
+            setPageSize(Number(e.target.value))
+          }}
+        >
+          {[10, 20, 50, 100].map(pageSize => (
+            <option key={pageSize} value={pageSize}>
+              Show {pageSize} contests / page
+            </option>
+          ))}
+        </select>
+      </div>
 
-      <table {...getTableProps()}>
+      <table {...getTableProps()} align="center">
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -83,7 +85,7 @@ export default function ContestHistoryTable({ columns, data }) {
         </tbody>
       </table>
 
-      <div className="pagination">
+      <div className="pagination" align="center">
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
         </button>{' '}
@@ -104,7 +106,6 @@ export default function ContestHistoryTable({ columns, data }) {
         <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
           {'>>'}
         </button>{' '}
-
       </div>
     </>
   )
