@@ -22,7 +22,9 @@ export default function Index() {
         <PostLink id="deploy-nextjs" as="" />
       </ul>
 
-      {RatingChart}
+      <div align="center">
+        {RatingChart}
+      </div>
     </div>
   );
 }
