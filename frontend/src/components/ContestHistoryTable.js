@@ -1,4 +1,4 @@
-import { useTable, usePagination } from "react-table";
+import { useTable, usePagination, useSortBy } from "react-table";
 
 export default function ContestHistoryTable({ columns, data }) {
   // Use the state and functions returned from useTable to build your UI
@@ -25,7 +25,8 @@ export default function ContestHistoryTable({ columns, data }) {
       data,
       initialState: { pageIndex: 0 },
     },
-    usePagination
+    useSortBy,
+    usePagination,
   )
 
   // Render the UI for your table
@@ -52,12 +53,20 @@ export default function ContestHistoryTable({ columns, data }) {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
                 <th
-                  {...column.getHeaderProps()}
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
                   style={{
                     border: 'solid 1px gray'
                   }}
                 >
                   {column.render('Header')}
+                  {/* Add a sort direction indicator */}
+                  <span>
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? ' 🔽'
+                        : ' 🔼'
+                      : ''}
+                  </span>
                 </th>
               ))}
             </tr>
