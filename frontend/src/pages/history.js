@@ -35,7 +35,7 @@ export default function History() {
 
   // dummy data.
   // TODO: Enable to fetch API in backend.
-  const data = React.useMemo(() => GenerateData(100), []);
+  const data = React.useMemo(() => GenerateData(1000), []);
 
   return (
     <div>
