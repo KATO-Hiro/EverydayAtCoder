@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTable } from "react-table";
 import Layout from "../components/MyLayout";
 import ContestHistoryTable from "../components/ContestHistoryTable";
 
