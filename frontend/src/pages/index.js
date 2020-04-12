@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Layout from "../components/MyLayout";
+import AtCoderHandle from "../components/AtCoderHandle";
 import RatingChart from "../components/RatingChart";
 
 const indexPageContent = <h1>My Blog</h1>;
@@ -29,6 +30,11 @@ export default function Index() {
         <PostLink id="learn-next.js" as="" />
         <PostLink id="deploy-nextjs" as="" />
       </ul>
+
+      <AtCoderHandle
+        handleName={'hogehoge'}
+        currentRating={2811}
+      />
 
       <div className="last-update" align="center">
         {/* Note: dummy values. */}
