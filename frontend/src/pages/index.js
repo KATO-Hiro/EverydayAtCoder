@@ -13,6 +13,14 @@ const PostLink = props => (
 );
 
 export default function Index() {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const hour = date.getHours();
+  const minute = date.getMinutes();
+  const second = date.getSeconds();
+
   return (
     <div>
       <Layout content={indexPageContent} />
@@ -21,6 +29,11 @@ export default function Index() {
         <PostLink id="learn-next.js" as="" />
         <PostLink id="deploy-nextjs" as="" />
       </ul>
+
+      <div className="last-update" align="center">
+        {/* Note: dummy values. */}
+        Last update: {year}/{month}/{day} {hour}:{minute}:{second}
+      </div>
 
       <div align="center">
         {RatingChart}
