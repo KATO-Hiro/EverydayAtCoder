@@ -8,7 +8,10 @@ const renderLineChart = (
     <Line type="monotone" dataKey="NewRating" stroke="#8884d8"></Line>
     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
     <XAxis dataKey="" />
-    <YAxis />
+    <YAxis
+      domain={[dataMin => Math.max(0, dataMin - 200), 'dataMax + 200']}
+      ticks={[0, 400, 800, 1200, 1600, 2000, 2400, 2800]}
+    />
     <Tooltip />
   </LineChart>
 );
