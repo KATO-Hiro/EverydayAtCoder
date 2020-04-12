@@ -3,8 +3,41 @@ import GenerateData from '../components/GenerateData';
 import {
   ratingColors
 } from "../utils/ratingColors";
+import ratingColorStyle from "../utils/ratingColorStyle";
 
 const data = GenerateData(100);
+
+const tooltipStyle = {
+  backgroundColor: 'white',
+  padding: '10px',
+  borderRadius: '5px',
+};
+
+function ContestTooltip({ payload, label, active }) {
+  if (active) {
+    const contestName = payload[0].payload["ContestName"];
+    const newRating = payload[0].payload["NewRating"];
+    const performance = payload[0].payload["Performance"];
+
+    return (
+      <div className="contest-tooltip" style={tooltipStyle}>
+        <div className="contest-tooltip-header" dividing="true">
+          #{label}:{contestName}
+        </div>
+        <div className="new-rating" align="center">
+          New rating:
+          <span style={ratingColorStyle(newRating)}>{newRating}</span>
+        </div>
+        <div className="performance" align="center">
+          Estimated performance:
+          <span style={ratingColorStyle(performance)}>{performance}</span>
+        </div>
+      </div>
+    );
+  }
+
+  return null;
+}
 
 const renderLineChart = (
   <LineChart width={600} height={350} data={data}>
@@ -20,7 +53,10 @@ const renderLineChart = (
       domain={[dataMin => Math.max(0, dataMin - 200), 'dataMax + 200']}
       ticks={[0, 400, 800, 1200, 1600, 2000, 2400, 2800]}
     />
-    <Tooltip />
+    <Tooltip
+      cursor={{ strokeDasharray: '3 3' }}
+      content={<ContestTooltip />}
+    />
   </LineChart>
 );
 

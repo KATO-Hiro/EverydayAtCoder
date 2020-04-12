@@ -1,11 +1,11 @@
-const red = "#FF0000";
-const orange = "#FF8000";
-const yellow = "#C0C000";
-const blue = "#0000FF";
-const lightblue = "#00C0C0";
-const green = "#008000";
-const brown = "#804000";
-const gray = "#808080";
+export const red = "#FF0000";
+export const orange = "#FF8000";
+export const yellow = "#C0C000";
+export const blue = "#0000FF";
+export const lightblue = "#00C0C0";
+export const green = "#008000";
+export const brown = "#804000";
+export const gray = "#808080";
 
 export const ratingColors = [
   red,
