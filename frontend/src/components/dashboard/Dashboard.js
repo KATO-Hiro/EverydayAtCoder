@@ -23,6 +23,8 @@ import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
 
+// See:
+// https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/dashboard
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
