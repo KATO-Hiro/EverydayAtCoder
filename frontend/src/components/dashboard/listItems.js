@@ -20,9 +20,9 @@ export const mainListItems = (
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <InfoIcon />
+        <PersonIcon />
       </ListItemIcon>
-      <ListItemText primary="About" />
+      <ListItemText primary="Profile" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
@@ -38,15 +38,15 @@ export const mainListItems = (
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <PersonIcon />
-      </ListItemIcon>
-      <ListItemText primary="Profile" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
         <SettingsIcon />
       </ListItemIcon>
       <ListItemText primary="Settings" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <InfoIcon />
+      </ListItemIcon>
+      <ListItemText primary="About" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
