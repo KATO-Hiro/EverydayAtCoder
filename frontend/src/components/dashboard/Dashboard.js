@@ -152,8 +152,12 @@ export default function Dashboard(props) {
           >
             Everyday AtCoder
           </Typography>
-          <IconButton color="inherit">
-            <GitHubIcon />
+          <IconButton
+            color="inherit"
+            href="https://github.com/KATO-Hiro/EverydayAtCoder"
+            target="_blank"
+          >
+            <GitHubIcon/>
           </IconButton>
         </Toolbar>
       </AppBar>
