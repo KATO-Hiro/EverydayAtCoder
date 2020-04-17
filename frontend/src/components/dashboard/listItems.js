@@ -10,49 +10,55 @@ import PersonIcon from '@material-ui/icons/Person';
 import SettingsIcon from '@material-ui/icons/Settings';
 import LinkIcon from '@material-ui/icons/Link';
 
+// See:
+// https://github.com/anasyusef/Society-app-react-rails/blob/8cc416446392411f4598f5ed1484911f7a7693ec/app/javascript/components/Dashboard/Dashboard.jsx
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
+
 export const mainListItems = (
   <div>
-    <ListItem button>
+    <ListItemLink href="/">
       <ListItemIcon>
         <HomeIcon />
       </ListItemIcon>
       <ListItemText primary="Home" />
-    </ListItem>
-    <ListItem button>
+    </ListItemLink>
+    <ListItemLink href="profile">
       <ListItemIcon>
         <PersonIcon />
       </ListItemIcon>
       <ListItemText primary="Profile" />
-    </ListItem>
-    <ListItem button>
+    </ListItemLink>
+    <ListItemLink href="/">
       <ListItemIcon>
         <TrendingUpIcon />
       </ListItemIcon>
       <ListItemText primary="Virtual Rating" />
-    </ListItem>
-    <ListItem button>
+    </ListItemLink>
+    <ListItemLink href="history">
       <ListItemIcon>
         <HistoryIcon />
       </ListItemIcon>
       <ListItemText primary="Contest History" />
-    </ListItem>
-    <ListItem button>
+    </ListItemLink>
+    <ListItemLink href="settings">
       <ListItemIcon>
         <SettingsIcon />
       </ListItemIcon>
       <ListItemText primary="Settings" />
-    </ListItem>
-    <ListItem button>
+    </ListItemLink>
+    <ListItemLink href="/about">
       <ListItemIcon>
         <InfoIcon />
       </ListItemIcon>
       <ListItemText primary="About" />
-    </ListItem>
-    <ListItem button>
+    </ListItemLink>
+    <ListItemLink href="links">
       <ListItemIcon>
         <LinkIcon />
       </ListItemIcon>
       <ListItemText primary="Links" />
-    </ListItem>
+    </ListItemLink>
   </div>
 );
