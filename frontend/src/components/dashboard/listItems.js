@@ -1,5 +1,4 @@
 import React from 'react';
-import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
@@ -10,11 +9,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import SettingsIcon from '@material-ui/icons/Settings';
 import LinkIcon from '@material-ui/icons/Link';
 
-// See:
-// https://github.com/anasyusef/Society-app-react-rails/blob/8cc416446392411f4598f5ed1484911f7a7693ec/app/javascript/components/Dashboard/Dashboard.jsx
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
+import ListItemLink from './ListItemLink';
 
 export const mainListItems = (
   <div>
