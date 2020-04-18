@@ -137,7 +137,6 @@ export default function Dashboard(props) {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-  const preventDefault = (event) => event.preventDefault();
 
   return (
     <div className={classes.root}>
