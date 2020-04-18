@@ -17,6 +17,7 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import TwitterIcon from '@material-ui/icons/Twitter';
 import { mainListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
@@ -154,8 +155,17 @@ export default function Dashboard(props) {
           </Typography>
           <IconButton
             color="inherit"
+            href="https://twitter.com/k_hiro1818"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <TwitterIcon/>
+          </IconButton>
+          <IconButton
+            color="inherit"
             href="https://github.com/KATO-Hiro/EverydayAtCoder"
             target="_blank"
+            rel="noreferrer"
           >
             <GitHubIcon/>
           </IconButton>
