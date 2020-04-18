@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -25,22 +24,10 @@ import {
   GITHUB_URL,
 } from "../../utils/Url";
 import { mainListItems } from './listItems';
+import Copyright from "./Copyright";
 
 // See:
 // https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/dashboard
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
