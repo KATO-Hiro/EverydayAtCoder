@@ -1,121 +1,71 @@
-import { useTable, usePagination, useSortBy } from "react-table";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from '@material-ui/core';
 
-export default function ContestHistoryTable({ columns, data }) {
-  // Use the state and functions returned from useTable to build your UI
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    prepareRow,
-    page, // Instead of using 'rows', we'll use page,
-    // which has only the rows for the active page
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
 
-    // The rest of these things are super handy, too ;)
-    canPreviousPage,
-    canNextPage,
-    pageOptions,
-    pageCount,
-    gotoPage,
-    nextPage,
-    previousPage,
-    setPageSize,
-    state: { pageIndex, pageSize },
-  } = useTable({
-      columns,
-      data,
-      initialState: { pageIndex: 0 },
-    },
-    useSortBy,
-    usePagination,
-  )
+export default function ContestHistoryTable({ data }) {
+  const classes = useStyles();
 
-  // Render the UI for your table
   return (
     <>
-      <div className="pagesize" align="right">
-        <select
-          value={pageSize}
-          onChange={e => {
-            setPageSize(Number(e.target.value))
-          }}
+      <TableContainer component={Paper}>
+        <Table
+          className={classes.table}
+          size="small"
+          aria-label="a dense table"
         >
-          {[10, 20, 50, 100].map(pageSize => (
-            <option key={pageSize} value={pageSize}>
-              Show {pageSize} contests / page
-            </option>
-          ))}
-        </select>
-      </div>
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">Contest&nbsp;Name</TableCell>
+              <TableCell align="right">Estimated&nbsp;Performance</TableCell>
+              <TableCell align="right">New&nbsp;Rating</TableCell>
+              <TableCell align="right">Diff</TableCell>
+            </TableRow>
+          </TableHead>
 
-      <table {...getTableProps()} align="center">
-        <thead>
-          {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map(column => (
-                <th
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                  style={{
-                    border: 'solid 1px gray'
-                  }}
+          <TableBody>
+            {data.map((row) => (
+              <TableRow key={row.name}>
+                <TableCell
+                  component="th"
+                  scope="row"
+                  align="left"
                 >
-                  {column.render('Header')}
-                  {/* Add a sort direction indicator */}
-                  <span>
-                    {column.isSorted
-                      ? column.isSortedDesc
-                        ? ' 🔽'
-                        : ' 🔼'
-                      : ''}
-                  </span>
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {page.map((row, i) => {
-            prepareRow(row)
-
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map(cell => {
-                  return (<td
-                          {...cell.getCellProps()}
-                          style={{
-                            border: 'solid 1px gray',
-                          }}
-                        >
-                          {cell.render('Cell')}
-                        </td>);
-                })}
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
-
-      <div className="pagination" align="center">
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          {'<<'}
-        </button>{' '}
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          {'<'}
-        </button>{' '}
-
-        <span>
-          Page: {' '}
-          <strong>
-            {pageIndex + 1} / {pageOptions.length}
-          </strong>
-        </span>{' '}
-
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          {'>'}
-        </button>{' '}
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-          {'>>'}
-        </button>{' '}
-      </div>
+                  {row.ContestName}
+                </TableCell>
+                <TableCell
+                  align="right"
+                >
+                  {row.Performance}
+                </TableCell>
+                <TableCell
+                  align="right"
+                >
+                  {row.NewRating}
+                </TableCell>
+                <TableCell
+                  align="right"
+                >
+                  {row.Diff}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </>
   )
 }
