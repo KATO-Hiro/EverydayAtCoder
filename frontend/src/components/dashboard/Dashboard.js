@@ -18,6 +18,13 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import {
+  PRODUCT_NAME,
+} from "../../utils/ProductName";
+import {
+  TWITTER_URL,
+  GITHUB_URL,
+} from "../../utils/Url";
 import { mainListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
@@ -151,11 +158,11 @@ export default function Dashboard(props) {
             noWrap
             className={classes.title}
           >
-            Everyday AtCoder
+            {PRODUCT_NAME}
           </Typography>
           <IconButton
             color="inherit"
-            href="https://twitter.com/k_hiro1818"
+            href={TWITTER_URL}
             target="_blank"
             rel="noreferrer"
           >
@@ -163,7 +170,7 @@ export default function Dashboard(props) {
           </IconButton>
           <IconButton
             color="inherit"
-            href="https://github.com/KATO-Hiro/EverydayAtCoder"
+            href={GITHUB_URL}
             target="_blank"
             rel="noreferrer"
           >
