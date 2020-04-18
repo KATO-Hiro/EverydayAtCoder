@@ -1,19 +1,26 @@
-import Link from "next/link";
-import Layout from "../components/MyLayout";
+import {
+  Grid,
+  Paper,
+} from '@material-ui/core';
+import {
+  makeStyles
+} from '@material-ui/core/styles';
+
 import AtCoderHandle from "../components/AtCoderHandle";
 import RatingChart from "../components/RatingChart";
 
-const indexPageContent = <h1>My Blog</h1>;
-
-const PostLink = props => (
-  <li>
-    <Link href="/p/[id]" as={`/p/${props.id}`}>
-      <a>{props.id}</a>
-    </Link>
-  </li>
-);
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    paddingTop: theme.spacing(1),
+    paddingLeft: theme.spacing(4),
+    paddingRight: theme.spacing(3),
+    paddingBottom: theme.spacing(2),
+  },
+}));
 
 export default function Index() {
+  const classes = useStyles();
+
   const date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
@@ -24,26 +31,26 @@ export default function Index() {
 
   return (
     <div>
-      <Layout content={indexPageContent} />
-      <ul>
-        <PostLink id="hello-next.js" as="" />
-        <PostLink id="learn-next.js" as="" />
-        <PostLink id="deploy-nextjs" as="" />
-      </ul>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>
+            <AtCoderHandle
+              handleName={'hogehoge'}
+              currentRating={2811}
+            />
 
-      <AtCoderHandle
-        handleName={'hogehoge'}
-        currentRating={2811}
-      />
+            <div className="last-update" align="left">
+              {/* Note: dummy values. */}
+              Last update: {year}/{month}/{day} {hour}:{minute}:{second}
+            </div>
 
-      <div className="last-update" align="center">
-        {/* Note: dummy values. */}
-        Last update: {year}/{month}/{day} {hour}:{minute}:{second}
-      </div>
-
-      <div align="center">
-        {RatingChart}
-      </div>
+            {/* TODO: Enable to use rating chart as component. */}
+            <div align="center">
+              {RatingChart}
+            </div>
+          </Paper>
+        </Grid>
+      </Grid>
     </div>
   );
 }
