@@ -15,7 +15,7 @@ const style = {
 };
 
 const AtCoderHandle = (props) => (
-  <div className="atcoder-handle" align="center">
+  <div className="atcoder-handle" align="left">
     <h1 style={ratingColorStyle(props.currentRating)}>
       <span style={style}></span>
       {props.handleName}
