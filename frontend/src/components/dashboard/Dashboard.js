@@ -21,6 +21,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import {
   PRODUCT_NAME,
 } from "../../utils/ProductName";
+import ListItemLink from "../dashboard/ListItemLink";
 import {
   TWITTER_URL,
   GITHUB_URL,
@@ -158,7 +159,9 @@ export default function Dashboard(props) {
             noWrap
             className={classes.title}
           >
-            {PRODUCT_NAME}
+            <ListItemLink href="/">
+              {PRODUCT_NAME}
+            </ListItemLink>
           </Typography>
           <IconButton
             color="inherit"
