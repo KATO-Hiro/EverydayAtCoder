@@ -24,6 +24,7 @@ const newConstestResult = (round) => {
   const newRating = oldRating + diff;
 
   return {
+    Round: round + 1,
     ContestName:
       contestType > 0.85
         ? 'AtCoder Grand Conest ' + contestRound
