@@ -23,6 +23,7 @@ import {
 import {
   TablePaginationActions,
 } from './TablePagination';
+import ratingColorStyle from "../utils/ratingColorStyle";
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -111,12 +112,16 @@ export default function ContestHistoryTable({ data }) {
                    <StyledTableCell
                      align="right"
                    >
-                     {row.Performance}
+                     <span style={ratingColorStyle(row.Performance)}>
+                      {row.Performance}
+                     </span>
                    </StyledTableCell>
                    <StyledTableCell
                      align="right"
                    >
-                     {row.NewRating}
+                     <span style={ratingColorStyle(row.NewRating)}>
+                      {row.NewRating}
+                     </span>
                    </StyledTableCell>
                    <StyledTableCell
                      align="right"
