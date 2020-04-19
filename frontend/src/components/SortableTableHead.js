@@ -7,6 +7,10 @@ import {
   TableSortLabel,
 } from '@material-ui/core';
 
+import {
+  headCells
+} from './SortableTableHeadCells';
+
 // See:
 // https://material-ui.com/components/tables/#sorting-amp-selecting
 function descendingComparator(first, second, orderBy) {
@@ -39,29 +43,6 @@ export function stableSort(array, comparator) {
 
   return stabilizedThis.map((element) => element[0]);
 }
-
-const headCells = [
-  {id: 'ContestName',
-   numeric: false,
-   disablePadding: true,
-   label: 'Contest Name',
-  },
-  {id: 'Performance',
-   numeric: true,
-   disablePadding: false,
-   label: 'Estimated Performance',
-  },
-  {id: 'NewRating',
-   numeric: true,
-   disablePadding: false,
-   label: 'New Rating',
-  },
-  {id: 'Diff',
-   numeric: true,
-   disablePadding: false,
-   label: 'Diff',
-  },
-];
 
 export default function SortableTableHead(props) {
   const { classes, order, orderBy, onRequestSort } = props;

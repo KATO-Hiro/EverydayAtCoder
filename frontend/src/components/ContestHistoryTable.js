@@ -46,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ContestHistoryTable({ data }) {
   const classes = useStyles();
-  const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('estimatedPerformance');
+  const [order, setOrder] = React.useState('desc');
+  const [orderBy, setOrderBy] = React.useState('Round');
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -99,6 +99,11 @@ export default function ContestHistoryTable({ data }) {
                    <StyledTableCell
                      component="th"
                      scope="row"
+                     align="right"
+                   >
+                     {row.Round}
+                   </StyledTableCell>
+                   <StyledTableCell
                      align="left"
                    >
                      {row.ContestName}
