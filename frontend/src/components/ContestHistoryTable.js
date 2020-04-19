@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  withStyles,
   makeStyles,
   useTheme,
 } from '@material-ui/core/styles';
@@ -22,6 +23,24 @@ import {
   KeyboardArrowRight,
   LastPage,
 } from '@material-ui/icons';
+
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.background.default,
+    },
+  },
+}))(TableRow);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -145,30 +164,30 @@ export default function ContestHistoryTable({ data }) {
               ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               : data
              ).map((row) => (
-              <TableRow key={row.name}>
-                <TableCell
+              <StyledTableRow key={row.name}>
+                <StyledTableCell
                   component="th"
                   scope="row"
                   align="left"
                 >
                   {row.ContestName}
-                </TableCell>
-                <TableCell
+                </StyledTableCell>
+                <StyledTableCell
                   align="right"
                 >
                   {row.Performance}
-                </TableCell>
-                <TableCell
+                </StyledTableCell>
+                <StyledTableCell
                   align="right"
                 >
                   {row.NewRating}
-                </TableCell>
-                <TableCell
+                </StyledTableCell>
+                <StyledTableCell
                   align="right"
                 >
                   {row.Diff}
-                </TableCell>
-              </TableRow>
+                </StyledTableCell>
+              </StyledTableRow>
             ))}
           </TableBody>
 
