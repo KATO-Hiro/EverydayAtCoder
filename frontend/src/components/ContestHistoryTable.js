@@ -95,7 +95,7 @@ export default function ContestHistoryTable({ data }) {
               : data
              ).map((row) => {
                return (
-                 <StyledTableRow key={row.name}>
+                 <StyledTableRow key={row.Round}>
                    <StyledTableCell
                      component="th"
                      scope="row"
