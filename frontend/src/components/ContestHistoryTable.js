@@ -12,7 +12,6 @@ import {
   TableCell,
   TableContainer,
   TableFooter,
-  TableHead,
   TableRow,
   TablePagination,
   Paper,
@@ -23,6 +22,11 @@ import {
   KeyboardArrowRight,
   LastPage,
 } from '@material-ui/icons';
+
+import SortableTableHead, {
+  getComparator,
+  stableSort,
+} from './SortableTableHead';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -53,8 +57,20 @@ const useStyles = makeStyles((theme) => ({
   container: {
     maxHeight: 640,
   },
+  visuallyHidden: {
+    border: 0,
+    clip: 'rect(0 0 0 0)',
+    height: 1,
+    margin: -1,
+    overflow: 'hidden',
+    padding: 0,
+    position: 'absolute',
+    top: 20,
+    width: 1,
+  },
 }));
 
+// TODO: Refactoring as a component.
 function TablePaginationActions(props) {
   const classes = useStyles();
   const theme = useTheme();
@@ -131,10 +147,18 @@ TablePaginationActions.propTypes = {
 
 export default function ContestHistoryTable({ data }) {
   const classes = useStyles();
+  const [order, setOrder] = React.useState('asc');
+  const [orderBy, setOrderBy] = React.useState('estimatedPerformance');
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
+
+  const handleRequestSort = (event, property) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+  };
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -157,45 +181,47 @@ export default function ContestHistoryTable({ data }) {
           stickyHeader
           aria-label="contest history table"
         >
-          <TableHead>
-            <TableRow>
-              <TableCell align="center">Contest&nbsp;Name</TableCell>
-              <TableCell align="right">Estimated&nbsp;Performance</TableCell>
-              <TableCell align="right">New&nbsp;Rating</TableCell>
-              <TableCell align="right">Diff</TableCell>
-            </TableRow>
-          </TableHead>
+          <SortableTableHead
+            classes={classes}
+            order={order}
+            orderBy={orderBy}
+            onRequestSort={handleRequestSort}
+          >
+          </SortableTableHead>
 
           <TableBody>
             {(rowsPerPage > 0
-              ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              ? stableSort(data, getComparator(order, orderBy))
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               : data
-             ).map((row) => (
-              <StyledTableRow key={row.name}>
-                <StyledTableCell
-                  component="th"
-                  scope="row"
-                  align="left"
-                >
-                  {row.ContestName}
-                </StyledTableCell>
-                <StyledTableCell
-                  align="right"
-                >
-                  {row.Performance}
-                </StyledTableCell>
-                <StyledTableCell
-                  align="right"
-                >
-                  {row.NewRating}
-                </StyledTableCell>
-                <StyledTableCell
-                  align="right"
-                >
-                  {row.Diff}
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
+             ).map((row) => {
+               return (
+                 <StyledTableRow key={row.name}>
+                   <StyledTableCell
+                     component="th"
+                     scope="row"
+                     align="left"
+                   >
+                     {row.ContestName}
+                   </StyledTableCell>
+                   <StyledTableCell
+                     align="right"
+                   >
+                     {row.Performance}
+                   </StyledTableCell>
+                   <StyledTableCell
+                     align="right"
+                   >
+                     {row.NewRating}
+                   </StyledTableCell>
+                   <StyledTableCell
+                     align="right"
+                   >
+                     {row.Diff}
+                   </StyledTableCell>
+                 </StyledTableRow>
+               );
+            })}
           </TableBody>
 
           <TableFooter>
