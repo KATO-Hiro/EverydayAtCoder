@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
   table: {
     minWidth: 650,
   },
+  container: {
+    maxHeight: 640,
+  },
 }));
 
 function TablePaginationActions(props) {
@@ -144,10 +147,14 @@ export default function ContestHistoryTable({ data }) {
 
   return (
     <>
-      <TableContainer component={Paper}>
+      <TableContainer
+        className={classes.container}
+        component={Paper}
+      >
         <Table
           className={classes.table}
           size="small"
+          stickyHeader
           aria-label="contest history table"
         >
           <TableHead>
