@@ -19,23 +19,6 @@ const useStyles = makeStyles((theme) => ({
     flexShrink: 0,
     marginLeft: theme.spacing(2.5),
   },
-//   table: {
-//     minWidth: 650,
-//   },
-//   container: {
-//     maxHeight: 640,
-//   },
-//   visuallyHidden: {
-//     border: 0,
-//     clip: 'rect(0 0 0 0)',
-//     height: 1,
-//     margin: -1,
-//     overflow: 'hidden',
-//     padding: 0,
-//     position: 'absolute',
-//     top: 20,
-//     width: 1,
-//   },
 }));
 
 export function TablePaginationActions(props) {
