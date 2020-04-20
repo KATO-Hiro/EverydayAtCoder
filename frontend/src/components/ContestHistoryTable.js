@@ -100,7 +100,7 @@ export default function ContestHistoryTable({ data }) {
                    <StyledTableCell
                      component="th"
                      scope="row"
-                     align="right"
+                     align="center"
                    >
                      {row.Round}
                    </StyledTableCell>
@@ -110,19 +110,19 @@ export default function ContestHistoryTable({ data }) {
                      {row.ContestName}
                    </StyledTableCell>
                    <StyledTableCell
-                     align="right"
+                     align="center"
                      style={RatingBackgroundColorsStyle(row.Performance)}
                    >
                     {row.Performance}
                    </StyledTableCell>
                    <StyledTableCell
-                     align="right"
+                     align="center"
                      style={RatingBackgroundColorsStyle(row.NewRating)}
                    >
                     {row.NewRating}
                    </StyledTableCell>
                    <StyledTableCell
-                     align="right"
+                     align="center"
                    >
                      {row.Diff}
                    </StyledTableCell>
