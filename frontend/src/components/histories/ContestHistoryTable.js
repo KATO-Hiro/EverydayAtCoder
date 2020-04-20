@@ -23,7 +23,7 @@ import {
 import {
   TablePaginationActions,
 } from './TablePagination';
-import RatingBackgroundColorsStyle from '../utils/RatingBackgroundColorsStyle';
+import RatingBackgroundColorsStyle from '../../utils/RatingBackgroundColorsStyle';
 
 const useStyles = makeStyles((theme) => ({
   table: {

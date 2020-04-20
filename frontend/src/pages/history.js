@@ -1,5 +1,5 @@
 import React from 'react';
-import ContestHistoryTable from "../components/ContestHistoryTable";
+import ContestHistoryTable from "../components/histories/ContestHistoryTable";
 import GenerateData from '../components/GenerateData';
 
 export default function History() {
