@@ -23,7 +23,7 @@ import {
   TWITTER_URL,
   GITHUB_URL,
 } from "../../utils/Url";
-import { mainListItems } from './listItems';
+import MainListItems from './listItems';
 import Copyright from "./Copyright";
 
 // See:
@@ -176,7 +176,7 @@ export default function Dashboard(props) {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+        <List><MainListItems /></List>
         <Divider />
       </Drawer>
       <main className={classes.content}>
