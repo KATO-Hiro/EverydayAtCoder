@@ -1,23 +1,223 @@
-import Layout from "../components/MyLayout";
 import Link from "next/link";
+import {
+  CssBaseline,
+  Grid,
+  Paper,
+  Typography,
+} from '@material-ui/core';
+import {
+  makeStyles,
+} from '@material-ui/core/styles';
 import fetch from "isomorphic-unfetch";
 
-const aboutPageContent = <h1>Batman TV Shows</h1>;
+// See:
+// https://material-ui.com/components/grid/
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    padding: theme.spacing(2),
+    margin: 'auto',
+    maxWidth: 750,
+  }
+}));
 
-const About = props => (
-  <div>
-    <Layout content={aboutPageContent} />
-    <ul>
-      {props.shows.map(show => (
-        <li key={show.id}>
-          <Link href="/p/[id]" as={`/p/${show.id}`}>
-            <a>{show.name}</a>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+// TODO: Extract a external file.
+const AtcoderLink = () => {
+  return (
+    <Link href="https://atcoder.jp/">
+      <a
+        target="_blank"
+        rel="noreferrer"
+      >
+        AtCoder
+      </a>
+    </Link>
+  );
+};
+
+const About = (props) => {
+  const classes = useStyles();
+
+  return (
+    <div>
+      <CssBaseline />
+
+
+      <Paper
+        className={classes.paper}
+      >
+        {/* Header */}
+        <Typography
+          variant="h4"
+          align="left"
+          component="h1"
+          gutterBottom
+        >
+          About
+        </Typography>
+
+        <Grid
+          container
+          spacing={2}
+        >
+          {/* About me */}
+          <Grid item>
+            <Typography
+              variant="h5"
+              align="left"
+              component="h3"
+              gutterBottom
+            >
+              Everyday Rated contests in AtCoder!
+            </Typography>
+
+            <ul>
+              <li>
+                <span>
+                  <AtcoderLink />
+                </span>
+
+                のバーチャルコンテストの結果を利用して、レートの変動を見える化する非公式サービスです。
+              </li>
+
+              <li>
+                バーチャルコンテストの参加モチベーションをさらに高めることを狙いとしています。
+              </li>
+            </ul>
+          </Grid>
+
+          {/* Pages */}
+          <Grid item>
+            <Typography
+              variant="h5"
+              align="left"
+              component="h3"
+              gutterBottom
+            >
+              Pages
+            </Typography>
+
+            <dl>
+              <dt>
+                Home
+              </dt>
+              <dd>
+                ログイン画面、もしくは、バーチャルコンテストの成績に応じたレートの変動をグラフで表示します。
+              </dd>
+
+              <dt>
+                Profile
+              </dt>
+              <dd>
+                あなたの競技プログラミングに関する成績・経歴などに関するページです。
+              </dd>
+
+              <dt>
+                Virtual Rating
+              </dt>
+              <dd>
+                バーチャルコンテストの成績に応じたレートの変動をグラフで表示します。
+              </dd>
+
+              <dt>
+                Contest History
+              </dt>
+              <dd>
+                バーチャルコンテストの成績を一覧表で表示します。
+              </dd>
+
+              <dt>
+                Settings
+              </dt>
+              <dd>
+                本サービスを利用するにあたって、必要な設定を行うページです。
+              </dd>
+
+              <dt>
+                About
+              </dt>
+              <dd>
+                本サービスを紹介するページです。
+              </dd>
+
+              <dt>
+                Links
+              </dt>
+              <dd>
+                関連する外部リンクを紹介します。
+              </dd>
+            </dl>
+          </Grid>
+
+          {/* Usage */}
+          <Grid item>
+            <Typography
+              variant="h5"
+              align="left"
+              component="h3"
+              gutterBottom
+            >
+              Usage
+            </Typography>
+
+              <ol>
+                <li>
+                  <span>
+                    <AtcoderLink />
+                  </span>
+
+                  でアカウントを作成した後に、バーチャルコンテストに参加します。
+                </li>
+
+                <li>
+                  Google/GitHub/Twitterアカウントで、本サービスにログインします。
+                </li>
+
+                <li>
+                  Virtual Rating(Home)ページ、もしくは、Contest Historyページに移動すると、レーティングが更新されます。
+                </li>
+              </ol>
+          </Grid>
+
+          {/* Note */}
+          <Grid item>
+            <Typography
+              variant="h5"
+              align="left"
+              component="h3"
+              gutterBottom
+            >
+              Note
+            </Typography>
+
+              <ul>
+                <li>
+                  レート計算の対象となるコンテストは、hogehogeです。順次、対象コンテストの種類・期間を拡張する予定です。
+                </li>
+
+                <li>
+                  レートの更新処理を自動的に実行できるようにする予定です。
+                </li>
+
+                <li>
+                  レートの更新処理には、1回のコンテストあたりfoo秒ほどかかります。
+                </li>
+              </ul>
+          </Grid>
+        </Grid>
+      </Paper>
+
+      <ul>
+        {props.shows.map(show => (
+          <li key={show.id}>
+            <Link href="/p/[id]" as={`/p/${show.id}`}>
+              <a>{show.name}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 About.getInitialProps = async function() {
   const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
