@@ -32,7 +32,6 @@
     "strictBindCallApply": false,
     "strictPropertyInitialization": false,
     "noImplicitThis": false,
-    "noEmit": true
   },
   "exclude": [
     "node_modules"
