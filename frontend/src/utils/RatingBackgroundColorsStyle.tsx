@@ -11,7 +11,7 @@ const green = 'rgba(178, 217, 178)';
 const brown = 'rgba(217, 197, 178)';
 const gray = 'rgba(217, 217, 217)';
 
-const ratingBackgroundColorStyle = (rating) => {
+const ratingBackgroundColorStyle = (rating: number) => {
   if (rating >= 3600) {
     return { backgroundImage: gold };
   } else if (rating >= 3200) {
