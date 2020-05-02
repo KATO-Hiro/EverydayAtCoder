@@ -23,6 +23,7 @@
     "jsx": "preserve",
     "sourceMap": true,
     "outDir": "./build",
+    "noEmit": false,
     "incremental": true,
     "removeComments": false,
     "strict": true,
