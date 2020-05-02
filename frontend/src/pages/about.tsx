@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from "next/link";
 import {
   CssBaseline,
@@ -7,21 +8,25 @@ import {
 } from '@material-ui/core';
 import {
   makeStyles,
+  createStyles,
+  Theme,
 } from '@material-ui/core/styles';
 import fetch from "isomorphic-unfetch";
 
 // See:
 // https://material-ui.com/components/grid/
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    padding: theme.spacing(2),
-    margin: 'auto',
-    maxWidth: 750,
-  }
-}));
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    paper: {
+      padding: theme.spacing(2),
+      margin: 'auto',
+      maxWidth: 750,
+    },
+  }),
+);
 
 // TODO: Extract a external file.
-const AtcoderLink = () => {
+const AtCoderLink = () => {
   return (
     <Link href="https://atcoder.jp/">
       <a
@@ -73,7 +78,7 @@ const About = (props) => {
             <ul>
               <li>
                 <span>
-                  <AtcoderLink />
+                  <AtCoderLink />
                 </span>
 
                 のバーチャルコンテストの結果を利用して、レートの変動を見える化する非公式サービスです。
@@ -162,7 +167,7 @@ const About = (props) => {
               <ol>
                 <li>
                   <span>
-                    <AtcoderLink />
+                    <AtCoderLink />
                   </span>
 
                   でアカウントを作成した後に、バーチャルコンテストに参加します。

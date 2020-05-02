@@ -3,6 +3,7 @@ import {
   createMuiTheme,
   makeStyles,
   ThemeProvider,
+  Theme,
 } from '@material-ui/core/styles';
 import {
   Button,
@@ -26,7 +27,7 @@ import {
 // https://material-ui.com/components/text-fields/
 // https://material-ui.com/components/buttons/
 // https://codesandbox.io/s/9ywq085k9w?file=/src/index.js
-const useStyles = makeStyles((theme) =>({
+const useStyles = makeStyles((theme: Theme) =>({
   root: {
     '& > *': {
       margin: theme.spacing(1),

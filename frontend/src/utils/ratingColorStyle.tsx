@@ -9,7 +9,7 @@ import {
   gray,
 } from "./ratingColors";
 
-const ratingColorStyle = (rating) => {
+const ratingColorStyle = (rating: number) => {
   if (rating >= 2800) {
     return { color: red };
   } else if (rating >= 2400) {
