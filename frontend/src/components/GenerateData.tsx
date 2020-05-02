@@ -1,6 +1,6 @@
 // See:
 // https://codesandbox.io/embed/github/tannerlinsley/react-table/tree/master/examples/basic
-const range = len => {
+const range = (len: any) => {
   const arr = [];
 
   for (let i = 0; i < len; i++) {
@@ -10,7 +10,7 @@ const range = len => {
   return arr
 };
 
-const newConstestResult = (round) => {
+const newConstestResult = (round: any) => {
   // Note: dummy values
   const contestType = Math.random();
   const contestRound = Math.floor(Math.random() * 200);
@@ -38,11 +38,11 @@ const newConstestResult = (round) => {
   };
 };
 
-export default function GenerateData(...lens) {
+export default function GenerateData(...lens: any) {
   const makeDataLevel = (depth = 0) => {
     const len = lens[depth];
 
-    return range(len).map(d => {
+    return range(len).map((d: any) => {
       return {
         ...newConstestResult(d),
         subRows: len[depth + 1] ? makeDataLevel(depth + 1) : undefined,

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   ResponsiveContainer,
   LineChart,
@@ -7,6 +8,10 @@ import {
   YAxis,
   Tooltip
 } from "recharts";
+import {
+  makeStyles,
+  Theme,
+} from "@material-ui/core/styles";
 import GenerateData from '../components/GenerateData';
 import {
   ratingColors
@@ -21,8 +26,22 @@ const tooltipStyle = {
   borderRadius: '5px',
 };
 
-function ContestTooltip({ payload, label, active }) {
+const useStyles = makeStyles((theme: Theme) => ({
+  contestTooltipHeader: {
+    dividing: "true",
+  },
+  newRating: {
+    align: "center",
+  },
+  performance: {
+    align: "center",
+  },
+}));
+
+function ContestTooltip({ payload, label, active }: any) {
   if (active) {
+    const classes = useStyles();
+
     const contestName = payload[0].payload["ContestName"];
     const newRating = payload[0].payload["NewRating"];
     const performance = payload[0].payload["Performance"];

@@ -14,8 +14,8 @@ const style = {
   background: '-webkit-linear-gradient(bottom, red 0%, red 100%, rgba(255, 255, 255, 0.0) 100%, rgba(255, 255, 255, 0.0) 100%)',
 };
 
-const AtCoderHandle = (props) => (
-  <div className="atcoder-handle" align="left">
+const AtCoderHandle = (props: any) => (
+  <div className="atcoder-handle">
     <h1 style={ratingColorStyle(props.currentRating)}>
       <span style={style}></span>
       {props.handleName}
