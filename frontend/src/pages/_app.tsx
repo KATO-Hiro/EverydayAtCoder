@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import {
+  AppProps,
+} from 'next/app';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Dashboard from '../components/dashboard/Dashboard';
@@ -15,14 +18,18 @@ import {
 // https://ajonp.com/courses/nextjs9/nextjs-using-materialui-and-firebase-materialui
 const theme = responsiveFontSizes(createMuiTheme());
 
-export default function MyApp(props) {
+export default function MyApp(props: AppProps) {
   const { Component, pageProps } = props;
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
 
-    if (jssStyles) {
+    // HACK: Unknown if it follows the ideom of TypeScript.
+    // Object is possibly 'null' in error message.
+    // See:
+    // https://github.com/converge-app/converge-spa/blob/be7923676089335ba1f2bc339ac3038e16a56ca6/pages/_app.tsx
+    if (jssStyles && jssStyles.parentElement) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);

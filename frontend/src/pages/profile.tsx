@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core';
 import {
   makeStyles,
+  Theme,
 } from '@material-ui/core/styles';
 import {
   AccountCircle,
@@ -19,7 +20,7 @@ import {
 
 // See:
 // https://material-ui.com/components/grid/
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
@@ -30,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     margin: 'auto',
     maxWidth: 750,
+  },
+  updated: {
+    align: 'right',
   }
 }));
 
@@ -53,7 +57,7 @@ export default function Profile() {
           Profile
         </Typography>
 
-        <p align="right">
+        <p className={classes.updated}>
           Updated on: 2020/mm/dd hh:mm:ss
         </p>
 
