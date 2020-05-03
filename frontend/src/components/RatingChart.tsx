@@ -39,8 +39,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 function ContestTooltip({ payload, label, active }: any) {
+  const classes = useStyles();
+
   if (active) {
-    const classes = useStyles();
 
     const contestName = payload[0].payload["ContestName"];
     const newRating = payload[0].payload["NewRating"];
@@ -48,14 +49,14 @@ function ContestTooltip({ payload, label, active }: any) {
 
     return (
       <div className="contest-tooltip" style={tooltipStyle}>
-        <div className="contest-tooltip-header" dividing="true">
+        <div className={classes.contestTooltipHeader}>
           #{label}:{contestName}
         </div>
-        <div className="new-rating" align="center">
+        <div className={classes.newRating}>
           New rating:
           <span style={ratingColorStyle(newRating)}>{newRating}</span>
         </div>
-        <div className="performance" align="center">
+        <div className={classes.performance}>
           Estimated performance:
           <span style={ratingColorStyle(performance)}>{performance}</span>
         </div>
