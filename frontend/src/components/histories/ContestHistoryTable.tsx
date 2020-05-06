@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   makeStyles,
+  Theme,
 } from '@material-ui/core/styles';
 import {
   Table,
@@ -25,7 +26,7 @@ import {
 } from './TablePagination';
 import RatingBackgroundColorsStyle from '../../utils/RatingBackgroundColorsStyle';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   table: {
     minWidth: 650,
   },
@@ -45,7 +46,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ContestHistoryTable({ data }) {
+export default function ContestHistoryTable({
+  data
+}: {
+  data: any
+}) {
   const classes = useStyles();
   const [order, setOrder] = React.useState('desc');
   const [orderBy, setOrderBy] = React.useState('Round');
@@ -54,17 +59,17 @@ export default function ContestHistoryTable({ data }) {
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
-  const handleRequestSort = (event, property) => {
+  const handleRequestSort = (event: any, property: any) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
   };
 
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage = (event: any, newPage: any) => {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = (event) => {
+  const handleChangeRowsPerPage = (event: any) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
@@ -81,11 +86,13 @@ export default function ContestHistoryTable({ data }) {
           stickyHeader
           aria-label="contest history table"
         >
+          {/* error TS2322: Type '{ children: never[]; className: string; order: string; orderBy: string; onRequestSort: (event: any, property: any) => void; }' is not assignable to type 'IntrinsicAttributes & Pick<{ props: { classes: any; order: any; orderBy: any; onRequestSort: any; }; }, "props"> & Pick<InferProps<{ classes: Validator<object>; onRequestSort: Validator<...>; order: Validator<...>; orderBy: Validator<...>; }>, "order" | ... 2 more ... | "onRequestSort">'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & Pick<{ props: { classes: any; order: any; orderBy: any; onRequestSort: any; }; }, "props"> & Pick<InferProps<{ classes: Validator<object>; onRequestSort: Validator<...>; order: Validator<...>; orderBy: Validator<...>; }>, "order" | ... 2 more ... | "onRequestSort">'. */}
           <SortableTableHead
-            classes={classes}
-            order={order}
-            orderBy={orderBy}
-            onRequestSort={handleRequestSort}
+            // className={classes}
+            // order={order}
+            // orderBy={orderBy}
+            // onRequestSort={handleRequestSort}
           >
           </SortableTableHead>
 
@@ -94,7 +101,7 @@ export default function ContestHistoryTable({ data }) {
               ? stableSort(data, getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               : data
-             ).map((row) => {
+             ).map((row: any) => {
                return (
                  <StyledTableRow key={row.Round}>
                    <StyledTableCell
