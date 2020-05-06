@@ -40,7 +40,7 @@ $ git clone git@github.com:KATO-Hiro/EverydayAtCoder.git
 
 ### Frontend
 
-- Node.js 12.6.x
+- Node.js 14.0.0
 - [Next.js](https://nextjs.org/) 9.3.x
 - [React](https://reactjs.org/) 16.13.x
 - React-DOM 16.13.x
