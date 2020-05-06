@@ -1,6 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import {
+  makeStyles,
+  Theme,
+} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
@@ -18,19 +21,19 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import {
   PRODUCT_NAME,
 } from "../../utils/ProductName";
-import ListItemLink from "../dashboard/ListItemLink";
+import ListItemLink from "./ListItemLink";
 import {
   TWITTER_URL,
   GITHUB_URL,
 } from "../../utils/Url";
-import MainListItems from './listItems';
+import MainListItems from './ListItems';
 import Copyright from "./Copyright";
 
 // See:
 // https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/dashboard
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     display: 'flex',
   },
@@ -109,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard(props) {
+export default function Dashboard(props: any) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
