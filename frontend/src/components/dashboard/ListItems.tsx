@@ -4,7 +4,8 @@ import {
   List,
 } from '@material-ui/core/';
 import {
-  makeStyles
+  makeStyles,
+  Theme,
 } from '@material-ui/core/styles';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -27,7 +28,7 @@ import {
 } from '../../utils/Url';
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   nested: {
     paddingLeft: theme.spacing(4),
   },
