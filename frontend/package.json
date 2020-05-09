@@ -10,8 +10,13 @@
   "dependencies": {
     "@material-ui/core": "^4.9.10",
     "@material-ui/icons": "^4.9.1",
+    "dotenv": "^8.2.0",
+    "dotenv-webpack": "^1.7.0",
+    "firebase": "^7.14.3",
+    "firebase-tools": "^8.2.0",
     "isomorphic-unfetch": "^3.0.0",
     "next": "9.3.4",
+    "now": "^19.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-table": "^7.0.4",
