@@ -39,6 +39,6 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx", "src/firebase/index.js"
   ]
 }

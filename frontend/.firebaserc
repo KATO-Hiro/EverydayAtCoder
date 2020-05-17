@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "production": "everyday-atcoder-production",
+    "staging": "everyday-atcoder-staging",
+    "default": "everyday-atcoder-staging"
+  }
+}
