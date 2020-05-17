@@ -19,8 +19,7 @@
       "FIREBASE_MESSAGING_SENDER_ID": "@firebase-messaging-sender-id",
       "FIREBASE_APP_ID": "@firebase-app-id",
       "FIREBASE_MEASUREMENT_ID": "@firebase-measurement-id",
-      "FIREBASE_CLIENT_EMAIL": "@firebase-client-email",
-      "FIREBASE_PRIVATE_KEY": "@firebase-private-key"
+      "FIREBASE_CLIENT_EMAIL": "@firebase-client-email"
     }
   }
 }
