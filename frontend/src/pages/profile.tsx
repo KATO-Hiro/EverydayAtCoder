@@ -17,6 +17,7 @@ import {
   FiberManualRecord,
   RadioButtonUnchecked,
 } from '@material-ui/icons';
+import withAuth from '../helpers/withAuth';
 
 // See:
 // https://material-ui.com/components/grid/
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-export default function Profile() {
+function Profile() {
   const classes = useStyles();
 
   return (
@@ -156,3 +157,5 @@ export default function Profile() {
     </div>
   );
 }
+
+export default withAuth(Profile);

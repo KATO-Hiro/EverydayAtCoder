@@ -6,31 +6,29 @@ const { resolve } = require('path');
 // https://github.com/benzguo/nextjs-now-firebase/blob/master/next.config.js
 require("dotenv").config();
 
+// See:
+// https://medium.com/@uvictor/simple-firebase-authentication-with-next-js-using-hoc-higher-order-components-8e8931d25cfa
+// https://nekorokkekun.hatenablog.com/entry/2019/09/25/000041#%E3%82%B5%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%92%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B
+const path = require("path");
+const Dotenv = require("dotenv-webpack");
+
 const nextConfig = {
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
     config.resolve.alias['~'] = resolve(__dirname, 'src')
 
-    // Fixes npm packages that depend on `fs` module
-    if (!isServer) {
-      config.node = {
-        fs: "empty"
-      };
-    }
+    config.plugins = config.plugins || [];
+    config.plugins = [
+      ...config.plugins,
+
+      // Read the .env file
+      new Dotenv({
+        path: path.join(__dirname, ".env"),
+        systemvars: true
+      })
+    ];
 
     return config
   },
-  env: {
-    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
-    FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
-    FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,
-    FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
-    FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
-    FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
-    FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
-    FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,
-    FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,
-    FIREBASE_PRIVATE_KEY: process.env.FIREBASE_PRIVATE_KEY
-  }
 };
 
 module.exports = nextConfig;

@@ -22,6 +22,7 @@ import {
   AccountCircle,
   Save,
 } from '@material-ui/icons';
+import withAuth from "../helpers/withAuth";
 
 // See:
 // https://material-ui.com/components/text-fields/
@@ -46,7 +47,7 @@ const theme = createMuiTheme({
   },
 });
 
-export default function Settings() {
+function Settings() {
   const classes = useStyles();
 
   return (
@@ -131,3 +132,5 @@ export default function Settings() {
     </>
   );
 }
+
+export default withAuth(Settings);
