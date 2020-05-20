@@ -24,10 +24,12 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+// See:
+// https://stackoverflow.com/questions/57841607/invalid-href-passed-to-router-error-after-fresh-installed-create-next-app
 // TODO: Extract a external file.
 const AtCoderLink = () => {
   return (
-    <Link href="https://atcoder.jp/">
+    <Link href="//atcoder.jp/">
       <a
         target="_blank"
         rel="noreferrer"
