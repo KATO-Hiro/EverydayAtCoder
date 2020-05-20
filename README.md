@@ -30,7 +30,7 @@ $ cd hoge
 $ git clone git@github.com:KATO-Hiro/EverydayAtCoder.git
 ```
 
-### Set up [Firebase] (https://firebase.google.com/) in local env
+### Set up [Firebase](https://firebase.google.com/) in local env
 
 1. Sign into your Firebase account, and create a project for staging environment.
 
