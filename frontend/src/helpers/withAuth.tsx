@@ -12,7 +12,7 @@ import { colors } from '@material-ui/core';
 // https://medium.com/@uvictor/simple-firebase-authentication-with-next-js-using-hoc-higher-order-components-8e8931d25cfa
 // https://nekorokkekun.hatenablog.com/entry/2019/09/25/000041#%E3%82%B5%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%92%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B
 // https://medium.com/javascript-scene/do-react-hooks-replace-higher-order-components-hocs-7ae4a08b7b58
-const withAuth = (Component) => props => {
+const withAuth = (Component: any) => (props: any) => {
   const [status, setStatus] = useState("LOADING");
 
   useEffect(() => {
